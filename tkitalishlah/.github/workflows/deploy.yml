@@ -32,7 +32,7 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: ./node_modules/.astro
-          key: ${{ runner.os }}-astro-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-astro-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-astro-
 
