@@ -1,0 +1,5 @@
+{
+    "image": "mcr.microsoft.com/devcontainers/universal:2-linux",
+    "postCreateCommand": "curl -fsSL https://bun.sh/install | bash && npm i -g vercel",
+    "postStartCommand": "bun install --frozen-lockfile"
+  }
