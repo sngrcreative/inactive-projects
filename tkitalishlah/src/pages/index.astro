@@ -5,13 +5,13 @@ import { getImage } from 'astro:assets'
 import portraitImg from '~/assets/portrait.jpg'
 import landscapeImg from '~/assets/landscape.jpg'
 
-const portrait = await getImage({src: portraitImg, widths: [240, 540]})
-const landscape = await getImage({src: landscapeImg, widths: [720, 1080]})
+const portrait = await getImage({ src: portraitImg, widths: [240, 540] })
+const landscape = await getImage({ src: landscapeImg, widths: [720, 1080] })
 ---
 
 <Layout>
-<main class="relative h-screen">
-	<h1>TKIT Al-Ishlah</h1>
-	<Wallpaper portrait={portrait} landscape={landscape} />
-</main>
+  <main class="relative h-screen">
+    <h1>TKIT Al-Ishlah</h1>
+    <Wallpaper portrait={portrait} landscape={landscape} />
+  </main>
 </Layout>
