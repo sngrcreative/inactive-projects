@@ -1,16 +1,17 @@
 ---
+import Layout from '~/layouts/layout.astro'
+import Wallpaper from '~/components/wallpaper.astro'
+import { getImage } from 'astro:assets'
+import portraitImg from '~/assets/portrait.jpg'
+import landscapeImg from '~/assets/landscape.jpg'
 
+const portrait = await getImage({src: portraitImg, widths: [240, 540]})
+const landscape = await getImage({src: landscapeImg, widths: [720, 1080]})
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+<main class="relative h-screen">
+	<h1>TKIT Al-Ishlah</h1>
+	<Wallpaper portrait={portrait} landscape={landscape} />
+</main>
+</Layout>
