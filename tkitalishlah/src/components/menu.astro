@@ -1,0 +1,33 @@
+---
+import Button from './button.astro'
+const MAIN_MENU = [
+  {
+    title: 'Tentang Sekolah',
+  },
+  {
+    title: 'Staff Pendidik',
+  },
+  {
+    title: 'Program Unggulan',
+  },
+  {
+    title: 'Kegiatan Sekolah',
+  },
+  {
+    title: 'Prestasi Siswa',
+  },
+  {
+    title: 'Yuk Main!',
+  },
+] as const
+---
+
+<ul class="flex flex-col gap-2">
+  {
+    MAIN_MENU.map((item) => (
+      <li>
+        <Button>{item.title}</Button>
+      </li>
+    ))
+  }
+</ul>

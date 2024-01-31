@@ -1,6 +1,7 @@
 ---
 import Layout from '~/layouts/layout.astro'
 import Logo from '~/components/logo.astro'
+import Navigation from '~/components/navigation.astro'
 import Wallpaper from '~/components/wallpaper.astro'
 import { getImage } from 'astro:assets'
 import portraitImg from '~/assets/portrait.jpg'
@@ -30,8 +31,13 @@ const logo = await getImage({
       imagesizes="(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1080px) 720px, 1080px"
     />
   </Fragment>
-  <main class="relative flex flex-col items-center h-screen px-8 pt-16">
-    <Logo logo={logo} />
+  <main class="relative flex h-screen">
+    <div
+      class="flex-1 flex flex-col lg:flex-row items-center md:items-start justify-between px-8 pt-16 pb-8 md:pb-16"
+    >
+      <Logo logo={logo} />
+      <Navigation />
+    </div>
     <Wallpaper portrait={portrait} landscape={landscape} />
   </main>
 </Layout>

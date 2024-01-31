@@ -8,10 +8,12 @@ interface Props {
 const { logo } = Astro.props
 ---
 
-<div class="flex items-center gap-1">
+<div
+  class="flex md:flex-col items-center md:items-start gap-1 md:gap-4 drop-shadow"
+>
   <img src={logo.src} alt="" loading="eager" {...logo.attributes} />
   <h1
-    class="font-heading text-4xl text-brand-light [-webkit-text-stroke:1px_var(--text-border)] max-w-[160px]"
+    class="font-heading text-4xl md:text-6xl text-brand-light [-webkit-text-stroke:1px_var(--text-border)] max-w-[160px] md:max-w-[unset]"
   >
     TKIT <br /> Al-Ishlah
   </h1>

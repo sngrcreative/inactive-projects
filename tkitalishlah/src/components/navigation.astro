@@ -1,0 +1,25 @@
+---
+import Button from './button.astro'
+import Menu from './menu.astro'
+---
+
+<Fragment>
+  <nav
+    class="md:hidden flex flex-col-reverse gap-6 w-full pb-16"
+    x-data="{ open: false }"
+  >
+    <Button x-on:click="open=!open"> Menu </Button>
+    <div x-show="open" x-cloak>
+      <Menu />
+    </div>
+  </nav>
+  <nav class="hidden md:flex">
+    <Menu />
+  </nav>
+</Fragment>
+
+<style>
+  [x-cloak] {
+    display: none !important;
+  }
+</style>
