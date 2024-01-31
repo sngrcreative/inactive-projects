@@ -1,17 +1,37 @@
 ---
 import Layout from '~/layouts/layout.astro'
+import Logo from '~/components/logo.astro'
 import Wallpaper from '~/components/wallpaper.astro'
 import { getImage } from 'astro:assets'
 import portraitImg from '~/assets/portrait.jpg'
 import landscapeImg from '~/assets/landscape.jpg'
+import logoImg from '~/assets/logo.png'
 
 const portrait = await getImage({ src: portraitImg, widths: [240, 540] })
 const landscape = await getImage({ src: landscapeImg, widths: [720, 1080] })
+const logo = await getImage({
+  src: logoImg,
+  width: 80,
+  height: 80,
+  loading: 'eager',
+})
 ---
 
 <Layout>
-  <main class="relative h-screen">
-    <h1>TKIT Al-Ishlah</h1>
+  <Fragment slot="head">
+    <link rel="preload" href={logo.src} as="image" />
+    <link
+      rel="preload"
+      href={portrait.src}
+      as="image"
+      imagesrcset={[portrait.srcSet.attribute, landscape.srcSet.attribute].join(
+        ', '
+      )}
+      imagesizes="(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1080px) 720px, 1080px"
+    />
+  </Fragment>
+  <main class="relative flex flex-col items-center h-screen px-8 pt-16">
+    <Logo logo={logo} />
     <Wallpaper portrait={portrait} landscape={landscape} />
   </main>
 </Layout>
