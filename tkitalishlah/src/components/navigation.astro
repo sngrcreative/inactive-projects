@@ -3,20 +3,24 @@ import Button from './button.astro'
 import Menu from './menu.astro'
 ---
 
-<Fragment>
-  <nav
-    class="md:hidden flex flex-col-reverse gap-6 w-full pb-16"
-    x-data="{ open: false }"
-  >
-    <Button x-on:click="open=!open"> Menu </Button>
-    <div x-show="open" x-cloak>
-      <Menu />
-    </div>
-  </nav>
-  <nav class="hidden md:flex">
+<nav
+  class="md:hidden flex flex-col-reverse gap-6 w-full pb-16"
+  x-data="{ open: false }"
+>
+  <Button class="z-[2]" x-on:click="open=!open"> Menu </Button>
+  <div class="z-[2]" x-show="open" x-cloak>
     <Menu />
-  </nav>
-</Fragment>
+  </div>
+  <button
+    class="absolute inset-0 z-[1]"
+    aria-label="Tutup Menu"
+    x-show="open"
+    x-on:click="open=false"
+    x-cloak></button>
+</nav>
+<nav class="hidden md:flex">
+  <Menu />
+</nav>
 
 <style>
   [x-cloak] {
