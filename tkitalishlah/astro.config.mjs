@@ -5,6 +5,6 @@ import tailwind from '@astrojs/tailwind'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://tkitalishlah.pages.dev',
+  site: 'https://tkitalishlah.projects.sngrcreative.xyz',
   integrations: [htmx(), alpinejs(), tailwind()],
 })

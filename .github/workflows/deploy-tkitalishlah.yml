@@ -1,13 +1,18 @@
-name: Deploy to Vercel
+name: Deploy TKIT Al-Ishlah
 on:
   push:
     branches: [main]
+    paths: ["tkitalishlah/**"]
   pull_request:
     branches: [main]
+    paths: ["tkitalishlah/**"]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tkitalishlah
     steps:
       # checkout
       - uses: actions/checkout@v4
@@ -15,7 +20,7 @@ jobs:
       # install bun
       - uses: oven-sh/setup-bun@v2
         with:
-          bun-version-file: .bun-version
+          bun-version-file: tkitalishlah/.bun-version
 
       # install packages
       - run: bun install --frozen-lockfile
@@ -26,4 +31,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=tkitalishlah
+          workingDirectory: tkitalishlah
