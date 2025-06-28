@@ -1,0 +1,14 @@
+image: gitpod/workspace-bun
+
+tasks:
+  - init: |
+      bun install --frozen-lockfile
+    command: |
+      echo "Run \"bun dev\" to start dev server"
+
+vscode:
+  extensions:
+    - astro-build.astro-vscode
+    - bradlc.vscode-tailwindcss
+    - GitHub.vscode-github-actions
+    - sourcegraph.cody-ai

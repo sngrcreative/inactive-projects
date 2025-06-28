@@ -1,0 +1,16 @@
+---
+import BaseLayout from './base.astro'
+
+import '@fontsource/chewy'
+import '@fontsource/patrick-hand'
+---
+
+<BaseLayout>
+  <Fragment slot="head">
+    <slot name="head" />
+  </Fragment>
+
+  <Fragment>
+    <slot />
+  </Fragment>
+</BaseLayout>
