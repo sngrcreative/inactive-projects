@@ -1,0 +1,31 @@
+---
+import type { GetImageResult } from 'astro'
+
+interface Props {
+  portrait: GetImageResult
+  landscape: GetImageResult
+}
+
+const { portrait, landscape } = Astro.props
+---
+
+<picture>
+  <source
+    media="(max-width: 720px)"
+    width={portrait.attributes.width}
+    height={portrait.attributes.height}
+    srcset={portrait.srcSet.attribute}
+  />
+  <source
+    media="(min-width: 720px)"
+    width={landscape.attributes.width}
+    height={landscape.attributes.height}
+    srcset={landscape.srcSet.attribute}
+  />
+  <img
+    class="absolute inset-0 z-[-1] object-cover object-center h-full"
+    src={portrait.src}
+    alt=""
+    {...portrait.attributes}
+  />
+</picture>

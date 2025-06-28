@@ -1,0 +1,32 @@
+{
+  "name": "tkitalishlah",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "astro": "astro",
+    "build": "astro check && astro build",
+    "dev": "bunx --bun astro dev --host 0.0.0.0 --port $PORT",
+    "format": "prettier --write .",
+    "preview": "bunx --bun astro preview --host 0.0.0.0",
+    "start": "astro dev"
+  },
+  "dependencies": {
+    "@astrojs/alpinejs": "0.4.0",
+    "@astrojs/check": "0.4.1",
+    "@astrojs/tailwind": "5.1.0",
+    "@fontsource/chewy": "5.0.8",
+    "@fontsource/patrick-hand": "5.0.18",
+    "@types/alpinejs": "3.13.6",
+    "alpinejs": "3.13.5",
+    "astro": "4.4.3",
+    "astro-htmx": "1.0.5",
+    "htmx.org": "1.9.10",
+    "tailwindcss": "3.4.1",
+    "typescript": "5.3.3"
+  },
+  "devDependencies": {
+    "prettier": "3.2.5",
+    "prettier-plugin-astro": "0.13.0",
+    "wrangler": "^3.69.1"
+  }
+}
